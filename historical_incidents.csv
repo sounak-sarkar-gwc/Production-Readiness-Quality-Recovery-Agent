@@ -1,0 +1,21 @@
+incident_id,machine_id,tool_id,defect_type,root_cause,recovery_action_id,resolution_time_min,success,date
+INC-0007,M07,TL-14,SCRATCH,Tool wear beyond threshold causing surface scratching,ADJUST_PARAM,8,TRUE,2026-05-12
+INC-0002,M07,TL-14,SCRATCH,Tool wear beyond threshold causing surface scratching,REPLACE_TOOL,20,TRUE,2026-04-02
+INC-0004,M03,TL-05,CRACK,Material moisture content out of spec,MATERIAL_SWAP,15,TRUE,2026-04-20
+INC-0009,M02,TL-09,CONTAM,Contaminated colorant batch,MATERIAL_SWAP,15,FALSE,2026-06-01
+INC-0011,M07,TL-16,SCRATCH,Injection pressure drift,ADJUST_PARAM,8,TRUE,2026-06-25
+INC-0013,M05,TL-11,CRACK,Cooling time too short for wall thickness,RECALIBRATE_MACHINE,25,TRUE,2026-07-08
+INC-0014,M01,TL-18,SCRATCH,Mold insert surface wear,ADJUST_PARAM,9,TRUE,2026-05-20
+INC-0015,M01,TL-18,CRACK,Injection pressure too high for wall thickness,RECALIBRATE_MACHINE,22,TRUE,2026-06-15
+INC-0016,M04,TL-20,CONTAM,Airborne particulate contamination near feed hopper,MATERIAL_SWAP,18,TRUE,2026-05-05
+INC-0017,M04,TL-20,SCRATCH,Ejector pin misalignment,ADJUST_PARAM,7,TRUE,2026-07-02
+INC-0018,M06,TL-13,CRACK,Extrusion die temperature drift,RECALIBRATE_MACHINE,28,FALSE,2026-05-18
+INC-0019,M06,TL-13,CRACK,Extrusion die temperature drift (recurrence after first fix failed),REPLACE_TOOL,24,TRUE,2026-05-19
+INC-0020,M08,TL-02,SCRATCH,Deburring wheel wear,REPLACE_TOOL,19,TRUE,2026-06-10
+INC-0021,M08,TL-02,CONTAM,Cross-contamination from prior batch residue,MATERIAL_SWAP,16,TRUE,2026-07-22
+INC-0022,M09,TL-16,CONTAM,Supplier batch contamination (raw resin),MATERIAL_SWAP,17,TRUE,2026-04-28
+INC-0023,M09,TL-16,SCRATCH,Tool wear beyond threshold causing surface scratching,REPLACE_TOOL,21,TRUE,2026-07-30
+INC-0024,M10,TL-24,CRACK,Cooling time too short for wall thickness,RECALIBRATE_MACHINE,26,TRUE,2026-06-02
+INC-0025,M10,TL-24,SCRATCH,Injection pressure drift,ADJUST_PARAM,8,TRUE,2026-08-01
+INC-0026,M02,TL-18,SCRATCH,Tool wear beyond threshold causing surface scratching,ADJUST_PARAM,9,FALSE,2026-05-25
+INC-0027,M02,TL-18,SCRATCH,Tool wear beyond threshold causing surface scratching (retry after param adjust failed),REPLACE_TOOL,20,TRUE,2026-05-25

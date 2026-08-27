@@ -1,0 +1,244 @@
+{
+  "info": {
+    "name": "Production Readiness, Quality & Recovery Agent",
+    "description": "POC backend for the readiness -> detection -> impact -> investigation -> recovery -> approval -> verification loop. Run backend/server.py first, then hit these against http://localhost:8100.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      { "key": "key", "value": "X-API-Key" },
+      { "key": "value", "value": "{{api_key}}" },
+      { "key": "in", "value": "header" }
+    ]
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://localhost:8100/prq" },
+    { "key": "incident_id", "value": "PRQ-INC-0001" },
+    { "key": "api_key", "value": "", "description": "Only needed if BACKEND_API_KEY is set on the server. Leave blank while auth is disabled (the default)." }
+  ],
+  "item": [
+    {
+      "name": "Story walkthrough (run in order)",
+      "item": [
+        {
+          "name": "Health",
+          "request": { "method": "GET", "url": "{{base_url}}/health" }
+        },
+        {
+          "name": "List machines",
+          "request": { "method": "GET", "url": "{{base_url}}/machines" }
+        },
+        {
+          "name": "Get machine (M07)",
+          "request": { "method": "GET", "url": "{{base_url}}/machines/M07" }
+        },
+        {
+          "name": "1. Readiness check (M07 / ORD-2001)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/readiness/check",
+            "body": { "mode": "raw", "raw": "{\n  \"machine_id\": \"M07\",\n  \"order_id\": \"ORD-2001\"\n}" }
+          }
+        },
+        {
+          "name": "Get readiness result (ORD-2001)",
+          "request": { "method": "GET", "url": "{{base_url}}/readiness/ORD-2001" }
+        },
+        {
+          "name": "2. Ingest quality event (triggers incident if rising)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/quality/events",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"machine_id\": \"M07\",\n  \"order_id\": \"ORD-2001\",\n  \"timestamp\": \"2026-08-26 14:40:00\",\n  \"units_inspected\": 100,\n  \"units_defective\": 6,\n  \"defect_type\": \"SCRATCH\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Get quality trend (M07 / ORD-2001)",
+          "request": { "method": "GET", "url": "{{base_url}}/quality/M07/trend?order_id=ORD-2001" }
+        },
+        {
+          "name": "List incidents",
+          "request": { "method": "GET", "url": "{{base_url}}/incidents" }
+        },
+        {
+          "name": "Get incident by id",
+          "request": { "method": "GET", "url": "{{base_url}}/incidents/{{incident_id}}" }
+        },
+        {
+          "name": "3. Approve incident (human-in-loop)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/incidents/{{incident_id}}/approve",
+            "body": { "mode": "raw", "raw": "{\n  \"approved\": true,\n  \"notes\": \"Approved by shift supervisor\"\n}" }
+          }
+        },
+        {
+          "name": "4. Verify recovery (clean sample)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/incidents/{{incident_id}}/verify",
+            "body": { "mode": "raw", "raw": "{\n  \"units_inspected\": 50,\n  \"units_defective\": 0\n}" }
+          }
+        },
+        {
+          "name": "Dashboard summary",
+          "request": { "method": "GET", "url": "{{base_url}}/dashboard/summary" }
+        }
+      ]
+    },
+    {
+      "name": "Standalone examples (one scenario per API, independent of each other)",
+      "item": [
+        {
+          "name": "GET /health",
+          "request": { "method": "GET", "url": "{{base_url}}/health" }
+        },
+        {
+          "name": "GET /machines (all 10)",
+          "request": { "method": "GET", "url": "{{base_url}}/machines" }
+        },
+        {
+          "name": "GET /machines/{id} (M02)",
+          "request": { "method": "GET", "url": "{{base_url}}/machines/M02" }
+        },
+        {
+          "name": "POST /readiness/check -- READY (M07 / ORD-2001)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/readiness/check",
+            "body": { "mode": "raw", "raw": "{\n  \"machine_id\": \"M07\",\n  \"order_id\": \"ORD-2001\"\n}" },
+            "description": "Expect ready:true, no blockers -- material, operator and tooling all check out."
+          }
+        },
+        {
+          "name": "POST /readiness/check -- BLOCKED, material never received at all (M08 / ORD-3001)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/readiness/check",
+            "body": { "mode": "raw", "raw": "{\n  \"machine_id\": \"M08\",\n  \"order_id\": \"ORD-3001\"\n}" },
+            "description": "Expect check_material_flow status RED (MAT-999 isn't in the material master at all, not just the wrong batch) plus check_quality_readiness YELLOW (tool TL-90 unknown, no calibration on record for M08) -- while check_skill_match is GREEN (OP-L is on shift and certified), isolating the material blocker."
+          }
+        },
+        {
+          "name": "POST /readiness/check -- BLOCKED, material batch mismatch (ORD-1001)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/readiness/check",
+            "body": { "mode": "raw", "raw": "{\n  \"machine_id\": \"M07\",\n  \"order_id\": \"ORD-1001\"\n}" },
+            "description": "Expect check_material_flow status YELLOW: order needs BATCH-4410 but only BATCH-5521 is on record for that material."
+          }
+        },
+        {
+          "name": "POST /readiness/check -- BLOCKED, operator off-shift/uncertified (M02 / ORD-1100)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/readiness/check",
+            "body": { "mode": "raw", "raw": "{\n  \"machine_id\": \"M02\",\n  \"order_id\": \"ORD-1100\"\n}" },
+            "description": "Expect check_skill_match status RED: assigned operator OP-M is OFF_SHIFT and not certified for PROD-C on M02, with no on-shift alternative found."
+          }
+        },
+        {
+          "name": "GET /readiness/{order_id} (run a readiness/check for this order_id first)",
+          "request": { "method": "GET", "url": "{{base_url}}/readiness/ORD-2001" }
+        },
+        {
+          "name": "POST /quality/events -- normal reading, no incident (M07 / ORD-2001)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/quality/events",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"machine_id\": \"M07\",\n  \"order_id\": \"ORD-2001\",\n  \"timestamp\": \"2026-08-26 14:45:00\",\n  \"units_inspected\": 100,\n  \"units_defective\": 1,\n  \"defect_type\": \"SCRATCH\"\n}"
+            },
+            "description": "1% defect rate, in line with baseline -- expect trend.status GREEN, rising:false, incident:null."
+          }
+        },
+        {
+          "name": "POST /quality/events -- rising reading, creates incident (M09 / ORD-1093)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/quality/events",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"machine_id\": \"M09\",\n  \"order_id\": \"ORD-1093\",\n  \"timestamp\": \"2026-06-21 05:00:00\",\n  \"units_inspected\": 100,\n  \"units_defective\": 4,\n  \"defect_type\": \"CONTAM\"\n}"
+            },
+            "description": "Separate machine/order from the walkthrough, so it won't collide with PRQ-INC-0001. Expect trend.status RED and a new incident (e.g. PRQ-INC-0002) with a Gemini-written investigation."
+          }
+        },
+        {
+          "name": "GET /quality/{machine_id}/trend (M07)",
+          "request": { "method": "GET", "url": "{{base_url}}/quality/M07/trend?order_id=ORD-2001" }
+        },
+        {
+          "name": "GET /incidents (all)",
+          "request": { "method": "GET", "url": "{{base_url}}/incidents" }
+        },
+        {
+          "name": "GET /incidents?status=AWAITING_APPROVAL",
+          "request": { "method": "GET", "url": "{{base_url}}/incidents?status=AWAITING_APPROVAL" }
+        },
+        {
+          "name": "GET /incidents/{incident_id} (use an id from the list above)",
+          "request": { "method": "GET", "url": "{{base_url}}/incidents/{{incident_id}}" }
+        },
+        {
+          "name": "POST /incidents/{id}/approve -- APPROVED",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/incidents/{{incident_id}}/approve",
+            "body": { "mode": "raw", "raw": "{\n  \"approved\": true,\n  \"notes\": \"Approved by shift supervisor\"\n}" }
+          }
+        },
+        {
+          "name": "POST /incidents/{id}/approve -- REJECTED",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/incidents/{{incident_id}}/approve",
+            "body": { "mode": "raw", "raw": "{\n  \"approved\": false,\n  \"notes\": \"Hold -- want maintenance to inspect the line first\"\n}" },
+            "description": "Only works on an incident still AWAITING_APPROVAL -- run this on a fresh incident, not one already approved above."
+          }
+        },
+        {
+          "name": "POST /incidents/{id}/verify -- RECOVERED (clean sample)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/incidents/{{incident_id}}/verify",
+            "body": { "mode": "raw", "raw": "{\n  \"units_inspected\": 50,\n  \"units_defective\": 0\n}" },
+            "description": "Requires the incident to be RECOVERY_IN_PROGRESS (i.e. approved first). Expect status RESOLVED."
+          }
+        },
+        {
+          "name": "POST /incidents/{id}/verify -- NOT recovered, escalate",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/incidents/{{incident_id}}/verify",
+            "body": { "mode": "raw", "raw": "{\n  \"units_inspected\": 50,\n  \"units_defective\": 5\n}" },
+            "description": "10% defect rate on the post-fix sample -- still above baseline. Expect status ESCALATED, recovered:false."
+          }
+        },
+        {
+          "name": "GET /dashboard/summary",
+          "request": { "method": "GET", "url": "{{base_url}}/dashboard/summary" }
+        }
+      ]
+    }
+  ]
+}

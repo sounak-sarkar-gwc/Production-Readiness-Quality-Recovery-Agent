@@ -1,0 +1,11 @@
+machine_id,machine_name,line,machine_type,current_product,status,location
+M01,Injection Molding 01,Line 1,Injection Molding,PROD-C,IDLE,Plant 1 - Bay B
+M02,CNC Machining 02,Line 2,CNC Machining,PROD-A,RUNNING,Plant 1 - Bay C
+M03,Extrusion 03,Line 3,Assembly Line,PROD-A,RUNNING,Plant 1 - Bay D
+M04,Injection Molding 04,Line 4,CNC Machining,PROD-B,RUNNING,Plant 1 - Bay E
+M05,Extrusion 05,Line 1,CNC Machining,PROD-D,IDLE,Plant 1 - Bay A
+M06,Assembly Line 06,Line 2,Extrusion,PROD-C,RUNNING,Plant 1 - Bay B
+M07,Injection Molder 07,Line 3,Injection Molding,PROD-B,RUNNING,Plant 1 - Bay C
+M08,CNC Machining 08,Line 4,Assembly Line,PROD-C,IDLE,Plant 1 - Bay D
+M09,CNC Machining 09,Line 1,CNC Machining,PROD-C,RUNNING,Plant 1 - Bay E
+M10,Injection Molding 10,Line 2,Assembly Line,PROD-A,IDLE,Plant 1 - Bay A

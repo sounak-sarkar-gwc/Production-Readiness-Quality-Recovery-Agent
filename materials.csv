@@ -1,0 +1,111 @@
+material_id,material_name,material_type,batch_id,supplier,received_date
+MAT-204,ABS Resin - Black,Resin,BATCH-5521,Reliance Polymers,2026-08-20
+MAT-118,Colorant - Blue Masterbatch,Colorant,BATCH-3310,ChromaTech Additives,2026-08-18
+MAT-101,Nylon Compound,Additive,BATCH-3177,SABIC,2026-08-18
+MAT-102,ABS Resin - Natural,Filler,BATCH-3322,Tata Chemicals,2026-08-21
+MAT-103,UV Stabilizer Additive,Additive,BATCH-5364,ChromaTech Additives,2026-08-23
+MAT-104,ABS Resin - Natural,Resin,BATCH-5708,ChromaTech Additives,2026-08-25
+MAT-105,Nylon Compound,Resin,BATCH-3953,Reliance Polymers,2026-08-13
+MAT-106,Nylon Compound,Filler,BATCH-5603,Tata Chemicals,2026-08-06
+MAT-107,Nylon Compound,Additive,BATCH-3858,Tata Chemicals,2026-08-23
+MAT-108,Glass Fiber Filler,Resin,BATCH-5495,ChromaTech Additives,2026-08-18
+MAT-109,Glass Fiber Filler,Colorant,BATCH-3669,SABIC,2026-08-13
+MAT-110,Nylon Compound,Colorant,BATCH-5804,Tata Chemicals,2026-08-25
+MAT-111,ABS Resin - Natural,Colorant,BATCH-3131,Tata Chemicals,2026-08-13
+MAT-112,Nylon Compound,Resin,BATCH-3864,Tata Chemicals,2026-08-07
+MAT-113,Glass Fiber Filler,Filler,BATCH-4620,SABIC,2026-08-05
+MAT-114,Nylon Compound,Colorant,BATCH-4010,Tata Chemicals,2026-08-24
+MAT-115,UV Stabilizer Additive,Filler,BATCH-5390,SABIC,2026-08-12
+MAT-116,PP Resin,Colorant,BATCH-5087,SABIC,2026-08-03
+MAT-117,ABS Resin - Natural,Resin,BATCH-3626,ChromaTech Additives,2026-08-26
+MAT-119,Glass Fiber Filler,Filler,BATCH-5442,Reliance Polymers,2026-08-13
+MAT-120,Colorant - Black Masterbatch,Filler,BATCH-5167,Tata Chemicals,2026-08-18
+MAT-121,ABS Resin - Natural,Resin,BATCH-5792,Tata Chemicals,2026-08-25
+MAT-122,Glass Fiber Filler,Additive,BATCH-3456,Tata Chemicals,2026-08-14
+MAT-123,PP Resin,Filler,BATCH-3013,Tata Chemicals,2026-08-17
+MAT-124,PP Resin,Resin,BATCH-5561,Tata Chemicals,2026-08-21
+MAT-125,UV Stabilizer Additive,Colorant,BATCH-3626,Tata Chemicals,2026-08-25
+MAT-126,PP Resin,Resin,BATCH-5453,Tata Chemicals,2026-08-16
+MAT-127,ABS Resin - Natural,Resin,BATCH-4486,Tata Chemicals,2026-08-08
+MAT-128,ABS Resin - Natural,Colorant,BATCH-5323,Reliance Polymers,2026-08-03
+MAT-129,Glass Fiber Filler,Filler,BATCH-3283,ChromaTech Additives,2026-08-05
+MAT-130,Glass Fiber Filler,Filler,BATCH-5251,ChromaTech Additives,2026-08-09
+MAT-131,UV Stabilizer Additive,Filler,BATCH-3867,ChromaTech Additives,2026-08-23
+MAT-132,Nylon Compound,Filler,BATCH-5751,Tata Chemicals,2026-08-15
+MAT-133,UV Stabilizer Additive,Filler,BATCH-3495,ChromaTech Additives,2026-08-08
+MAT-134,ABS Resin - Natural,Additive,BATCH-3086,ChromaTech Additives,2026-08-19
+MAT-135,PP Resin,Resin,BATCH-3290,Reliance Polymers,2026-08-08
+MAT-136,ABS Resin - Natural,Resin,BATCH-4353,Reliance Polymers,2026-08-17
+MAT-137,PP Resin,Additive,BATCH-5740,SABIC,2026-08-07
+MAT-138,UV Stabilizer Additive,Colorant,BATCH-5962,SABIC,2026-08-08
+MAT-139,Colorant - Black Masterbatch,Filler,BATCH-3779,Reliance Polymers,2026-08-04
+MAT-140,Glass Fiber Filler,Filler,BATCH-4451,SABIC,2026-08-14
+MAT-141,Colorant - Black Masterbatch,Resin,BATCH-5758,Reliance Polymers,2026-08-02
+MAT-142,Colorant - Black Masterbatch,Additive,BATCH-3447,ChromaTech Additives,2026-08-07
+MAT-143,PP Resin,Filler,BATCH-3574,SABIC,2026-08-06
+MAT-144,Nylon Compound,Filler,BATCH-4023,Reliance Polymers,2026-08-15
+MAT-145,UV Stabilizer Additive,Resin,BATCH-3207,Reliance Polymers,2026-08-03
+MAT-146,PP Resin,Colorant,BATCH-4664,SABIC,2026-08-16
+MAT-147,PP Resin,Filler,BATCH-3240,ChromaTech Additives,2026-08-13
+MAT-148,ABS Resin - Natural,Filler,BATCH-4086,SABIC,2026-08-10
+MAT-149,Colorant - Black Masterbatch,Filler,BATCH-3634,ChromaTech Additives,2026-08-10
+MAT-150,PP Resin,Resin,BATCH-5372,Reliance Polymers,2026-08-24
+MAT-151,Nylon Compound,Resin,BATCH-3205,SABIC,2026-08-17
+MAT-152,UV Stabilizer Additive,Colorant,BATCH-3232,Reliance Polymers,2026-08-06
+MAT-153,ABS Resin - Natural,Resin,BATCH-5765,ChromaTech Additives,2026-08-13
+MAT-154,ABS Resin - Natural,Colorant,BATCH-5371,Reliance Polymers,2026-08-20
+MAT-155,ABS Resin - Natural,Filler,BATCH-5692,Tata Chemicals,2026-08-09
+MAT-156,PP Resin,Additive,BATCH-3977,Tata Chemicals,2026-08-13
+MAT-157,PP Resin,Additive,BATCH-4872,Tata Chemicals,2026-08-25
+MAT-158,ABS Resin - Natural,Resin,BATCH-4877,Reliance Polymers,2026-08-03
+MAT-159,UV Stabilizer Additive,Colorant,BATCH-5072,Tata Chemicals,2026-08-05
+MAT-160,Nylon Compound,Resin,BATCH-4000,Tata Chemicals,2026-08-10
+MAT-161,PP Resin,Filler,BATCH-5225,Tata Chemicals,2026-08-20
+MAT-162,Glass Fiber Filler,Resin,BATCH-5735,Tata Chemicals,2026-08-22
+MAT-163,ABS Resin - Natural,Colorant,BATCH-4083,Reliance Polymers,2026-08-04
+MAT-164,Glass Fiber Filler,Colorant,BATCH-4115,Tata Chemicals,2026-08-20
+MAT-165,PP Resin,Additive,BATCH-3833,Tata Chemicals,2026-08-17
+MAT-166,Colorant - Black Masterbatch,Additive,BATCH-3208,Reliance Polymers,2026-08-21
+MAT-167,Colorant - Black Masterbatch,Additive,BATCH-3180,Reliance Polymers,2026-08-11
+MAT-168,PP Resin,Additive,BATCH-3661,SABIC,2026-08-18
+MAT-169,Glass Fiber Filler,Filler,BATCH-5297,Reliance Polymers,2026-08-04
+MAT-170,ABS Resin - Natural,Colorant,BATCH-5234,Reliance Polymers,2026-08-12
+MAT-171,UV Stabilizer Additive,Colorant,BATCH-4760,ChromaTech Additives,2026-08-02
+MAT-172,Nylon Compound,Additive,BATCH-3163,Tata Chemicals,2026-08-07
+MAT-173,Glass Fiber Filler,Colorant,BATCH-5731,Reliance Polymers,2026-08-12
+MAT-174,UV Stabilizer Additive,Filler,BATCH-5542,ChromaTech Additives,2026-08-08
+MAT-175,PP Resin,Colorant,BATCH-4688,Reliance Polymers,2026-08-06
+MAT-176,Glass Fiber Filler,Additive,BATCH-4686,ChromaTech Additives,2026-08-09
+MAT-177,PP Resin,Resin,BATCH-4566,Reliance Polymers,2026-08-16
+MAT-178,PP Resin,Colorant,BATCH-4885,Tata Chemicals,2026-08-10
+MAT-179,PP Resin,Colorant,BATCH-3096,ChromaTech Additives,2026-08-13
+MAT-180,Nylon Compound,Additive,BATCH-3284,Tata Chemicals,2026-08-12
+MAT-181,Glass Fiber Filler,Filler,BATCH-5783,Tata Chemicals,2026-08-01
+MAT-182,ABS Resin - Natural,Additive,BATCH-3731,Tata Chemicals,2026-08-02
+MAT-183,ABS Resin - Natural,Filler,BATCH-4415,Tata Chemicals,2026-08-14
+MAT-184,UV Stabilizer Additive,Resin,BATCH-4577,ChromaTech Additives,2026-08-09
+MAT-185,ABS Resin - Natural,Filler,BATCH-3006,ChromaTech Additives,2026-08-12
+MAT-186,Colorant - Black Masterbatch,Resin,BATCH-5720,Tata Chemicals,2026-08-20
+MAT-187,Nylon Compound,Resin,BATCH-5948,Tata Chemicals,2026-08-17
+MAT-188,Nylon Compound,Filler,BATCH-4336,SABIC,2026-08-23
+MAT-189,Nylon Compound,Colorant,BATCH-3785,SABIC,2026-08-22
+MAT-190,Colorant - Black Masterbatch,Colorant,BATCH-5521,Tata Chemicals,2026-08-13
+MAT-191,UV Stabilizer Additive,Resin,BATCH-4244,Tata Chemicals,2026-08-07
+MAT-192,Colorant - Black Masterbatch,Additive,BATCH-4904,SABIC,2026-08-15
+MAT-193,Glass Fiber Filler,Colorant,BATCH-5093,SABIC,2026-08-26
+MAT-194,Glass Fiber Filler,Colorant,BATCH-5698,Reliance Polymers,2026-08-10
+MAT-195,UV Stabilizer Additive,Additive,BATCH-3382,ChromaTech Additives,2026-08-22
+MAT-196,Nylon Compound,Colorant,BATCH-3815,ChromaTech Additives,2026-08-01
+MAT-197,ABS Resin - Natural,Colorant,BATCH-4946,Reliance Polymers,2026-08-15
+MAT-198,Colorant - Black Masterbatch,Colorant,BATCH-5942,SABIC,2026-08-16
+MAT-199,Colorant - Black Masterbatch,Colorant,BATCH-3604,Reliance Polymers,2026-08-25
+MAT-200,ABS Resin - Natural,Filler,BATCH-3896,ChromaTech Additives,2026-08-26
+MAT-201,Glass Fiber Filler,Filler,BATCH-3205,ChromaTech Additives,2026-08-04
+MAT-202,Colorant - Black Masterbatch,Colorant,BATCH-4903,Tata Chemicals,2026-08-25
+MAT-203,Colorant - Black Masterbatch,Filler,BATCH-5244,SABIC,2026-08-06
+MAT-205,Glass Fiber Filler,Filler,BATCH-4843,Tata Chemicals,2026-08-25
+MAT-206,PP Resin,Additive,BATCH-5135,SABIC,2026-08-21
+MAT-207,PP Resin,Additive,BATCH-4801,Reliance Polymers,2026-08-23
+MAT-208,Nylon Compound,Colorant,BATCH-4112,Tata Chemicals,2026-08-11
+MAT-209,UV Stabilizer Additive,Resin,BATCH-3566,ChromaTech Additives,2026-08-08
+MAT-210,Colorant - Black Masterbatch,Colorant,BATCH-5893,ChromaTech Additives,2026-08-03

@@ -1,0 +1,28 @@
+# Secrets -- never commit real credentials
+backend/.env
+.env
+*.env
+!*.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+venv/
+.venv/
+env/
+
+# Ad hoc local dev-server artifacts (not part of the app itself)
+backend_out.log
+backend_err.log
+backend_pid.txt
+*.log
+
+# OS/editor cruft
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
